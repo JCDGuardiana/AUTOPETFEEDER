@@ -1,0 +1,21 @@
+<resources>
+    <string name="greetings">Welcom to \nSmart Pet Feeder</string>
+    <string name="img">Logo</string>
+    <string name="moto">Keeping Your Pet Fed, Anytime,Anywhere.</string>
+    <string name="landingpage_btn">LETS GO</string>
+    <string name="logo_desc">Paw print logo</string>
+    <string name="create_account">Create Account</string>
+    <string name="label_username">Username</string>
+    <string name="hint_username">Enter your username</string>
+    <string name="label_email">Email</string>
+    <string name="hint_email">Enter your email</string>
+    <string name="label_password">Password</string>
+    <string name="hint_password">Enter your password</string>
+    <string name="label_confirm_password">Confirm Password</string>
+    <string name="hint_confirm_password">Confirm your password</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>"
+    <string name="sign_up">Sign Up</string>
+    <string name="or_separator">- OR -</string>
+    <string name="googleBtn">Sign Up with Google</string>
+    <string name="facebookBtn">Sign Up with Facebook</string>
+</resources>
