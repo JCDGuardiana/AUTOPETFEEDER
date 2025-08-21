@@ -18,4 +18,10 @@
     <string name="or_separator">- OR -</string>
     <string name="googleBtn">Sign Up with Google</string>
     <string name="facebookBtn">Sign Up with Facebook</string>
+    <string name="login">Log in</string>
+    <string name="googleloginBTN">Log in with Google</string>
+    <string name="facebookloginBTN">Log in with Facebook</string>"
+    <string name="link">forgot <u>password??</u></string>
+    <string name="signuplink">dont have account?? <u><b>SIGN UP</b></u></string>
+
 </resources>
