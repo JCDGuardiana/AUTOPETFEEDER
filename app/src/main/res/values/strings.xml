@@ -1,6 +1,6 @@
 <resources>
     <string name="autopetfeeder">auto pet feeder</string>
-    <string name="greetings">Welcom to \nSmart Pet Feeder</string>
+    <string name="greetings">Welcome to \nSmart Pet Feeder</string>
     <string name="img">Logo</string>
     <string name="moto">Keeping Your Pet Fed, Anytime,Anywhere.</string>
     <string name="landingpage_btn">LETS GO</string>
@@ -20,9 +20,10 @@
     <string name="googleBtn">Sign Up with Google</string>
     <string name="facebookBtn">Sign Up with Facebook</string>
     <string name="login">Log in</string>
-    <string name="googleloginBTN">Log in with Google</string>
-    <string name="facebookloginBTN">Log in with Facebook</string>"
+    <string name="welcome_greetings">Welcome Back</string>
+    <string name="google_loginBTN">Log in with Google</string>
+    <string name="facebook_loginBTN">Log in with Facebook</string>"
     <string name="link">forgot <u>password??</u></string>
-    <string name="signuplink">dont have account?? <u><b>SIGN UP</b></u></string>
+    <string name="signup_link">dont have account?? <u><b>SIGN UP</b></u></string>
 
 </resources>
