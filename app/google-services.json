@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "972470880843",
+    "project_id": "autopetfeeder-cc6d7",
+    "storage_bucket": "autopetfeeder-cc6d7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:972470880843:android:cb88d71948698363e75bce",
+        "android_client_info": {
+          "package_name": "com.example.autopetfeeder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy5uSuWZ8TnhlGSKbhPIKMe8Tn2gkrYTE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
