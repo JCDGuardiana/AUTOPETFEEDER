@@ -1,5 +1,6 @@
 package com.example.autopetfeeder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,6 +24,8 @@ public class SignupActivity extends AppCompatActivity {
     //database firebase
     private DatabaseReference DRUser;
     private FirebaseDatabase DB;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,17 +112,22 @@ public class SignupActivity extends AppCompatActivity {
         user.put("email", email);
         user.put("password", password);
 
+
         DRUser.child(username).setValue(user)  //add to database
-                .addOnSuccessListener(aVoid ->
-                        Toast.makeText(SignupActivity.this, "User added to database", Toast.LENGTH_SHORT).show()
-                        //check if it add the user to database successfully
-                )
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(SignupActivity.this, "User added to database", Toast.LENGTH_SHORT).show();
+                    //check if it add the user to database successfully
+                    //after they sign up they will automatically return to login page
+                    Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                })
                 .addOnFailureListener(e ->
                         Toast.makeText(SignupActivity.this, "Failed to add user: " + e.getMessage(), Toast.LENGTH_SHORT).show()
                         //it display failure to add the user to database
                 );
 
-
-        Toast.makeText(this, "User validated! Ready to add to database.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "User validated! Ready to add to database.", Toast.LENGTH_SHORT).show();
     }
 }
+
