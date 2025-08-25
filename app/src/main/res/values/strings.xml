@@ -26,4 +26,22 @@
     <string name="link">forgot <u>password??</u></string>
     <string name="signup_link">dont have account?? <u><b>SIGN UP</b></u></string>
 
+    <string name="dashboard_greetings">Welcome</string>
+    <string name="view_page">Realtime Display</string>
+    <string name="dashboard_title">Dashboard</string>
+    <string name="feeding_schedule">Feeding Schedule</string>
+    <string name="add_sched">Add Schedule</string>
+    <string name="auto">Auto</string>
+    <string name="add_schedule">Add Schedule</string>
+    <string name="save_schedule">Save Schedule</string>
+    <string name="label_select_day">Select Days</string>
+    <string name="day1">Mon</string>
+    <string name="day2">Tue</string>
+    <string name="day3">Wed</string>
+    <string name="day4">Thu</string>
+    <string name="day5">Fri</string>
+    <string name="day6">Sat</string>
+    <string name="day7">Sun</string>
+
+
 </resources>

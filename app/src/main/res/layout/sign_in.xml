@@ -47,16 +47,16 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
         android:layout_marginTop="220dp"
-        android:layout_marginEnd="274dp"
+        android:layout_marginEnd="300dp"
         android:fontFamily="@font/fredoka_semibold"
-        android:text="@string/label_username"
+        android:text="@string/label_email"
         android:textColor="@color/navyblue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/loginusernameField"
+        android:id="@+id/loginemailField"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="54dp"
@@ -67,7 +67,7 @@
         android:drawablePadding="18dp"
         android:ems="10"
         android:fontFamily="@font/fredoka_semibold"
-        android:hint="@string/hint_username"
+        android:hint="@string/hint_email"
         android:inputType="text"
         android:textColor="@color/navyblue"
         android:textColorHint="@color/navyblue"
@@ -87,7 +87,7 @@
         android:textColor="@color/navyblue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginusernameField" />
+        app:layout_constraintTop_toBottomOf="@+id/loginemailField" />
 
     <EditText
         android:id="@+id/loginpassField"
@@ -103,7 +103,6 @@
         android:textColor="@color/navyblue"
         android:textColorHint="@color/navyblue"
         android:fontFamily="@font/fredoka_semibold"
-
         android:ems="10"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"

@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -24,7 +25,7 @@ public class SignupActivity extends AppCompatActivity {
     //database firebase
     private DatabaseReference DRUser;
     private FirebaseDatabase DB;
-
+    private FirebaseAuth auth;
 
 
     @Override
@@ -37,6 +38,8 @@ public class SignupActivity extends AppCompatActivity {
         );
 
         DRUser = DB.getReference("Users");
+        auth = FirebaseAuth.getInstance();
+
 
         EditText usernameField = findViewById(R.id.usernameField);
         EditText emailField = findViewById(R.id.emailField);
@@ -49,6 +52,7 @@ public class SignupActivity extends AppCompatActivity {
             String email = emailField.getText().toString().trim();
             String password = passwordField.getText().toString().trim();
             String confirmPassword = confirmpassField.getText().toString().trim();
+            String uid = auth.getUid();
             String domain = "@gmail.com";
             String[] specialChars = {"!", "@", "#", "$", "%", "^", "&", "*"};
 
@@ -104,30 +108,33 @@ public class SignupActivity extends AppCompatActivity {
     }
 
     private void addUser(String username, String email, String password) {
-        //store by pair key-value in database
-        //assoc array
-        // Write user to Firebase or your database
-        HashMap<String, Object> user = new HashMap<>();
-        user.put("username", username);
-        user.put("email", email);
-        user.put("password", password);
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        String uid = auth.getCurrentUser().getUid();
 
+                        HashMap<String, Object> user = new HashMap<>();
+                        user.put("uid", uid);
+                        user.put("username", username);
+                        user.put("email", email);
+                        user.put("password", password);
 
-        DRUser.child(username).setValue(user)  //add to database
-                .addOnSuccessListener(aVoid -> {
-                    Toast.makeText(SignupActivity.this, "User added to database", Toast.LENGTH_SHORT).show();
-                    //check if it add the user to database successfully
-                    //after they sign up they will automatically return to login page
-                    Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                })
-                .addOnFailureListener(e ->
-                        Toast.makeText(SignupActivity.this, "Failed to add user: " + e.getMessage(), Toast.LENGTH_SHORT).show()
-                        //it display failure to add the user to database
-                );
-
-            Toast.makeText(this, "User validated! Ready to add to database.", Toast.LENGTH_SHORT).show();
+                        DRUser.child(uid).setValue(user)
+                                .addOnSuccessListener(aVoid -> {
+                                    //check if it add the user to database successfully
+                                    //after they sign up they will automatically return to login page
+                                    Toast.makeText(SignupActivity.this, "User added to database", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(SignupActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                })
+                                .addOnFailureListener(e ->
+                                        //it display failure to add the user to database
+                                        Toast.makeText(SignupActivity.this, "Failed to save user data: " + e.getMessage(), Toast.LENGTH_SHORT).show()
+                                );
+                    }
+                });
     }
 }
+
 

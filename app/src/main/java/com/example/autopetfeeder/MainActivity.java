@@ -1,20 +1,21 @@
 package com.example.autopetfeeder;
 
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-
 public class MainActivity extends AppCompatActivity {
+
+    CardView realTimeCard;
+    CardView feedingCard;
+    CardView historyCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +27,37 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        FirebaseDatabase database = FirebaseDatabase.getInstance(
-                "https://autopetfeeder-cc6d7-default-rtdb.asia-southeast1.firebasedatabase.app/"
-        );
-        DatabaseReference myRef = database.getReference("message");
-        myRef.setValue("Hello, World!");
 
+        // Find the CardViews from the layout by their IDs
+        realTimeCard = findViewById(R.id.realTimeCard);
+        feedingCard = findViewById(R.id.feedingCard);
+        historyCard = findViewById(R.id.historyCard);
 
+        // Set up the click listener for the Real-Time Card
+        realTimeCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Since this is the main activity (Real-Time), no action is needed
+                // or you could refresh the page.
+            }
+        });
 
+        // Set up the click listener for the Feeding Schedule Card
+        feedingCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, FeedingActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        // Set up the click listener for the History Card
+        historyCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, HistoryActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }
